@@ -10,7 +10,7 @@ import com.l4gunner4l.writer.FileEmployeeWriter;
 import java.util.ArrayList;
 
 public class Main {
-    private static final String LINK_FILE = "https://raw.githubusercontent.com/nikolamikhailov/Lec4/master/in.txt";
+    private static final String LINK_FILE = "https://raw.githubusercontent.com/nikolamikhailov/Lec4/master/src/com/l4gunner4l/in.json";
     private static final String OUT_FILE_NAME = "D:\\Work\\ABDT\\Lec4\\src\\com\\l4gunner4l\\out.txt";
     private static final String IN_FILE_NAME = "D:\\Work\\ABDT\\Lec4\\src\\com\\l4gunner4l\\in.json";
     private static final String FAIL = "FAIL";
