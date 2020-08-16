@@ -1,0 +1,62 @@
+[
+  {
+    "id": 3189267743545089971,
+    "name": "Daniil",
+    "pay": 2000.0,
+    "type": "HourEmployee"
+  },
+  {
+    "id": 8654597840208219574,
+    "name": "Dasha",
+    "pay": 1270.0,
+    "type": "HourEmployee"
+  },
+  {
+    "id": 1438923401653798874,
+    "name": "Dasha",
+    "pay": 1200.0,
+    "type": "HourEmployee"
+  },
+  {
+    "id": 6952980492788205282,
+    "name": "Dasha",
+    "pay": 1100.0,
+    "type": "HourEmployee"
+  },
+  {
+    "id": 6786399255395147068,
+    "name": "Petr",
+    "pay": 1200.0,
+    "type": "HourEmployee"
+  },
+  {
+    "id": 7457609908402927244,
+    "name": "Danila",
+    "pay": 410600.0,
+    "type": "AverageEmployee"
+  },
+  {
+    "id": 2437119863089388689,
+    "name": "Kolya",
+    "pay": 189304.0,
+    "type": "AverageEmployee"
+  },
+  {
+    "id": 7218546227456736866,
+    "name": "Kolya2",
+    "pay": 18304.0,
+    "type": "AverageEmployee"
+  },
+  {
+    "id": 1868139373720621199,
+    "name": "Kolya3",
+    "pay": 190304.0,
+    "type": "AverageEmployee"
+  },
+  {
+    "id": 1722708752087479712,
+    "name": "Masha",
+    "pay": 194975.9,
+    "type": "AverageEmployee"
+  }
+]
