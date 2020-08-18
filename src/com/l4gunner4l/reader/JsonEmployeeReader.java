@@ -3,7 +3,6 @@ package com.l4gunner4l.reader;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import com.l4gunner4l.base.BaseEmployeeReader;
 import com.l4gunner4l.model.Employee;
 
 import java.io.BufferedReader;
@@ -14,32 +13,23 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class JsonEmployeeReader extends BaseEmployeeReader {
+public class JsonEmployeeReader implements EmployeeReader {
     public JsonEmployeeReader() {
     }
 
-    public ArrayList<Employee> readEmployees(String path) {
-        try {
-            HttpURLConnection httpURLConnection = (HttpURLConnection) (new URL(path)).openConnection();
-            StringBuilder json = readJson(httpURLConnection);
-            if (json == null) return null;
-            return convertFromJsonToEmployees(json);
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
+    @Override
+    public ArrayList<Employee> readEmployees(String path) throws IOException {
+        HttpURLConnection httpURLConnection = (HttpURLConnection) (new URL(path)).openConnection();
+        StringBuilder json = readJson(httpURLConnection);
+        return convertFromJsonToEmployees(json);
     }
 
-    private StringBuilder readJson(HttpURLConnection httpURLConnection) {
+    private StringBuilder readJson(HttpURLConnection httpURLConnection) throws IOException {
         StringBuilder json = new StringBuilder();
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()))) {
-            String line;
-            while ((line = reader.readLine()) != null && !line.isEmpty()) {
-                json.append(line).append("\n");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
+        BufferedReader reader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+        String line;
+        while ((line = reader.readLine()) != null && !line.isEmpty()) {
+            json.append(line).append("\n");
         }
         return json;
     }
@@ -48,6 +38,7 @@ public class JsonEmployeeReader extends BaseEmployeeReader {
         Gson gson = new GsonBuilder().registerTypeAdapter(Employee.class, new EmployeeDeserializer()).create();
         Type type = new TypeToken<ArrayList<Employee>>() {
         }.getType();
-        return gson.fromJson(json.toString(), type);
+        ArrayList<Employee> employees = gson.fromJson(json.toString(), type);
+        return employees;
     }
 }
